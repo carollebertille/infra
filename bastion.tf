@@ -26,7 +26,7 @@ resource "aws_instance" "bastionh" {
   vpc_security_group_ids = [aws_security_group.bastion_sg.id]
   key_name               = "devops"
   tags = {
-    Name = "jenkins"
+    Name = "bastion-dev"
   }
 }
 
