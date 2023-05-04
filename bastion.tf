@@ -41,6 +41,19 @@ resource "aws_instance" "bastionb" {
   }
 }
 
+resource "aws_instance" "serverapp1a" {
+  ami                    = data.aws_ami.ubuntu.id
+  instance_type          = "t2.micro"
+  subnet_id              = aws_subnet.app1a.id
+  vpc_security_group_ids = [aws_security_group.bastion_sg.id]
+  key_name               = "devops"
+  tags = {
+    Name = "app1a"
+  }
+}
+
+
+
 #resource "null_resource" "copy_ec2_keys" {
  # depends_on = [aws_instance.bastionh]
  # connection {
