@@ -38,12 +38,11 @@ resource "aws_instance" "bastionh" {
  #   user        = "ubuntu"
  #   password    = ""
  #   private_key = file("C:/Users/Carol/Downloads/devops.pem")
-  }
+  #}
 
 
   #provisioner "file" {
  #   source      = "./user-data.sh"
  #   destination = "/tmp/user-data.sh"
-  }
-}
-*/
+  #}
+#}
