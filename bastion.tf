@@ -21,7 +21,7 @@ data "aws_ami" "ubuntu" {
 
 resource "aws_instance" "bastionh" {
   ami                    = data.aws_ami.ubuntu.id
-  instance_type          = "t3.micro"
+  instance_type          = "t2.micro"
   subnet_id              = aws_subnet.web1a.id
   vpc_security_group_ids = [aws_security_group.bastion_sg.id]
   key_name               = "devops"
