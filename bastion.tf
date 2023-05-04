@@ -30,6 +30,17 @@ resource "aws_instance" "bastionh" {
   }
 }
 
+resource "aws_instance" "bastionb" {
+  ami                    = data.aws_ami.ubuntu.id
+  instance_type          = "t2.micro"
+  subnet_id              = aws_subnet.web1b.id
+  vpc_security_group_ids = [aws_security_group.bastion_sg.id]
+  key_name               = "devops"
+  tags = {
+    Name = "bastion-dev"
+  }
+}
+
 #resource "null_resource" "copy_ec2_keys" {
  # depends_on = [aws_instance.bastionh]
  # connection {
