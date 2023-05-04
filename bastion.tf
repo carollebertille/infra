@@ -30,19 +30,20 @@ resource "aws_instance" "bastionh" {
   }
 }
 
-resource "null_resource" "copy_ec2_keys" {
-  depends_on = [aws_instance.bastionh]
-  connection {
-    type        = "ssh"
-    host        = aws_eip.bastionh.public_ip
-    user        = "ubuntu"
-    password    = ""
-    private_key = file("C:/Users/Carol/Downloads/devops.pem")
+#resource "null_resource" "copy_ec2_keys" {
+ # depends_on = [aws_instance.bastionh]
+ # connection {
+ #   type        = "ssh"
+#    host        = aws_eip.bastionh.public_ip
+ #   user        = "ubuntu"
+ #   password    = ""
+ #   private_key = file("C:/Users/Carol/Downloads/devops.pem")
   }
 
 
-  provisioner "file" {
-    source      = "./user-data.sh"
-    destination = "/tmp/user-data.sh"
+  #provisioner "file" {
+ #   source      = "./user-data.sh"
+ #   destination = "/tmp/user-data.sh"
   }
 }
+*/
