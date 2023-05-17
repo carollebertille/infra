@@ -2,19 +2,18 @@ pipeline {
 
     agent any
 
-	stages {
+    stages {
 
-         stage (“terraform init”) {
+      stage (“terraform init”) {
 
-          steps {
+        steps {
 
-             sh (‘terraform init’)
+           sh (‘terraform init’)
 
-           }
+         }
 
-        }
-
- }
+       }
+    }
 }	
-	
-      
+
+
