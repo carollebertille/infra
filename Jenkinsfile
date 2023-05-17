@@ -1,15 +1,20 @@
 pipeline {
-    stages {
-	    stage {
-		          sh 'terraform init'
-		       }
-		   }
-       stage {
-		          sh 'terraform plan'
-		       }
-		   }
-    }
-}
-      
-       
+
+    agent any
+
+	stages {
+
+         stage (“terraform init”) {
+
+          steps {
+
+             sh (‘terraform init’)
+
+           }
+
+        }
+
+ }
+}	
+	
       
